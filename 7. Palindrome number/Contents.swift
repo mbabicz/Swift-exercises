@@ -13,5 +13,5 @@ isPalindrome(number: -11) //false
 isPalindrome(number: 12) //false
 isPalindrome(number: 11) //true
 isPalindrome(number: 121) //true
-isPalindrome(number: 123) //true
+isPalindrome(number: 123) //false
 
