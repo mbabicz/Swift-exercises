@@ -1,32 +1,36 @@
 //convert int to roman
 
-func convertToRoman(intNumber: Int) -> String {
-    
-    let romanNumbers = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
-    let arabicNumbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5 , 4, 1]
+func convertToRoman(_ intNumber: Int) -> String {
+    let romanNumerals = [
+        (1000, "M"),
+        (900, "CM"),
+        (500, "D"),
+        (400, "CD"),
+        (100, "C"),
+        (90, "XC"),
+        (50, "L"),
+        (40, "XL"),
+        (10, "X"),
+        (9, "IX"),
+        (5, "V"),
+        (4, "IV"),
+        (1, "I")
+    ]
     
     var romanOutput = ""
     var startingNumber = intNumber
     
-    
-    for i in 0..<romanNumbers.count{
-        var arabicNumber = arabicNumbers[i]
-        
-        var temp = startingNumber / arabicNumber
-        print(temp)
-        
+    for (arabic, roman) in romanNumerals {
+        let temp = startingNumber / arabic
+                
         if temp > 0 {
             for _ in 0..<temp {
-                romanOutput += romanNumbers[i]
+                romanOutput += roman
             }
-            startingNumber = startingNumber - (arabicNumber * temp)
-            
+            startingNumber -= temp * arabic
         }
-        
     }
-    
     return romanOutput
-    
 }
 
-convertToRoman(intNumber: 2254)
+convertToRoman(2254)// MMCCLIV
