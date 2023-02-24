@@ -1,4 +1,4 @@
-// merge sort algoritm
+// merge sort algorithm
 
 func mergeSort(array: [Int]) -> [Int]{
     guard array.count > 1 else { return array}
@@ -36,6 +36,5 @@ func merge(left: [Int], right: [Int]) -> [Int] {
     
     return sortedArray
 }
-
 
 mergeSort(array: [3,2,6,1,5,8,2])
