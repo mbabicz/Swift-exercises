@@ -1,6 +1,6 @@
 //Write a function that returns most frequent letter in a given string
 
-func findMostFrequentLetter(_ text: String) -> Character?{
+func findMostFrequentLetters(_ text: String) -> [Character] {
     var letterCount = [Character : Int]()
     
     for char in text.lowercased() {
@@ -12,15 +12,19 @@ func findMostFrequentLetter(_ text: String) -> Character?{
         }
     }
 
-    var mostFrequentLetter: Character?
+    var mostFrequentLetters = [Character]()
     var highestCount = 0
+    
     for (letter, count) in letterCount {
         if count > highestCount {
-            mostFrequentLetter = letter
+            mostFrequentLetters = [letter]
             highestCount = count
         }
+        else if count == highestCount {
+            mostFrequentLetters.append(letter)
+        }
     }
-    return mostFrequentLetter
+    
+    return mostFrequentLetters
 }
 
-findMostFrequentLetter("Test")
